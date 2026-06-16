@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <rect width="1024" height="1024" rx="230" fill="#1C1C1E"/>
+  <circle cx="512" cy="490" r="330" fill="none" stroke="#2C2C2E" stroke-width="60"/>
+  <circle cx="512" cy="490" r="330"
+    fill="none" stroke="#0A84FF" stroke-width="60"
+    stroke-dasharray="1452 2073" stroke-dashoffset="518"
+    stroke-linecap="round"
+    transform="rotate(-90 512 490)"/>
+  <circle cx="512" cy="160" r="36" fill="#0A84FF"/>
+  <text x="512" y="440" text-anchor="middle"
+    font-family="-apple-system, SF Pro Display, Helvetica Neue, sans-serif"
+    font-size="260" font-weight="700" fill="#0A84FF">7</text>
+  <text x="512" y="560" text-anchor="middle"
+    font-family="-apple-system, SF Pro Display, Helvetica Neue, sans-serif"
+    font-size="100" font-weight="600" fill="#0A84FF" letter-spacing="14">DAYS</text>
+</svg>

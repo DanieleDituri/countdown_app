@@ -1,0 +1,75 @@
+name: CountdownApp
+options:
+  bundleIdPrefix: com.daniele
+  deploymentTarget:
+    macOS: "14.0"
+  xcodeVersion: "15"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+
+schemes:
+  CountdownApp:
+    build:
+      targets:
+        CountdownApp: all
+        CountdownWidget: [build]
+    run:
+      config: Debug
+      targets:
+        - CountdownApp
+    test:
+      config: Debug
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+
+targets:
+
+  # ── App principale ──────────────────────────────────────────────────────────
+  CountdownApp:
+    type: application
+    platform: macOS
+    sources:
+      - path: CountdownApp
+        excludes:
+          - "**/*.entitlements"
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.daniele.CountdownApp
+        INFOPLIST_FILE: CountdownApp/Info.plist
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: k9r756396c
+        CODE_SIGN_ENTITLEMENTS: CountdownApp/CountdownApp.entitlements
+        ENABLE_HARDENED_RUNTIME: YES
+    dependencies:
+      - target: CountdownWidget
+        embed: true
+
+  # ── Widget Extension ────────────────────────────────────────────────────────
+  CountdownWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: CountdownWidget
+        excludes:
+          - "**/*.entitlements"
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.daniele.CountdownApp.CountdownWidget
+        INFOPLIST_FILE: CountdownWidget/Info.plist
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: k9r756396c
+        CODE_SIGN_ENTITLEMENTS: CountdownWidget/CountdownWidget.entitlements
+    dependencies:
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+      - sdk: AppIntents.framework
