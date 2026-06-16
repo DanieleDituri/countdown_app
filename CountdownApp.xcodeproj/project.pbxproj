@@ -20,7 +20,9 @@
 		BE6B2C7FFB28C1CBFA4D4DAF /* Commands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3638D7411064D6C8FB707C55 /* Commands.swift */; };
 		C3F1586B66D1D82074D7441C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB4A8445B8B325CCFD16159 /* ContentView.swift */; };
 		D3D943CE909A8F9E75AAC29D /* CountdownWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E1232734CFA6F119E97A0FE1 /* CountdownWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D93DA7E92FE1759D00C30DCE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93DA7E82FE1759D00C30DCE /* SettingsView.swift */; };
 		D9DB9EAA2FE14B2A007629D8 /* SelectEventIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB9EA92FE14B2A007629D8 /* SelectEventIntent.swift */; };
+		D9DB9EAE2FE14EEF007629D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9DB9EAB2FE14DF8007629D8 /* Assets.xcassets */; };
 		E42395DADB39533077045176 /* CountdownWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B833B9ADE497EE1E29D6A0 /* CountdownWidgetBundle.swift */; };
 		EA510FAF98EB055C96B90E31 /* SharedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77313C8CA541B741630FFC12 /* SharedModels.swift */; };
 		F0BA8FCCE747CCD627133A83 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105897719DF1C2CAB380751D /* WidgetKit.framework */; };
@@ -49,6 +51,15 @@
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D9DB9EAC2FE14ED7007629D8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -69,7 +80,9 @@
 		A27079635375EE3589093FE4 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		A4CEE19C6E95BCBADDE953D1 /* EventEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEntity.swift; sourceTree = "<group>"; };
 		ADB4A8445B8B325CCFD16159 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D93DA7E82FE1759D00C30DCE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D9DB9EA92FE14B2A007629D8 /* SelectEventIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEventIntent.swift; sourceTree = "<group>"; };
+		D9DB9EAB2FE14DF8007629D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E1232734CFA6F119E97A0FE1 /* CountdownWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CountdownWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -118,6 +131,8 @@
 		D498EEB69F749A50D6A95BAB = {
 			isa = PBXGroup;
 			children = (
+				D93DA7E82FE1759D00C30DCE /* SettingsView.swift */,
+				D9DB9EAB2FE14DF8007629D8 /* Assets.xcassets */,
 				EBA3AEFB1316310E94118B77 /* CountdownApp */,
 				E4AC0ABE2C61A4A8818045C8 /* CountdownWidget */,
 				CE5664ADD87C450C41EE294C /* Shared */,
@@ -179,6 +194,8 @@
 			buildPhases = (
 				7F716F8A8805C9E1AC3EE62D /* Sources */,
 				C76D3057CF61D2C266664F2C /* Embed Foundation Extensions */,
+				D9DB9EAC2FE14ED7007629D8 /* CopyFiles */,
+				D9DB9EAD2FE14EE8007629D8 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -229,6 +246,17 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		D9DB9EAD2FE14EE8007629D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9DB9EAE2FE14EEF007629D8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		110C63F8FF596059DF4E7500 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -250,6 +278,7 @@
 				BE6B2C7FFB28C1CBFA4D4DAF /* Commands.swift in Sources */,
 				C3F1586B66D1D82074D7441C /* ContentView.swift in Sources */,
 				FC864D5E532B1818EFFC8B38 /* CountdownApp.swift in Sources */,
+				D93DA7E92FE1759D00C30DCE /* SettingsView.swift in Sources */,
 				4A36EEC07F5A7ED1BFDA7341 /* EventFormView.swift in Sources */,
 				0F905291E71F361D93B55A1A /* Extensions.swift in Sources */,
 				B00500EAC65079041419F609 /* MenuBarViews.swift in Sources */,

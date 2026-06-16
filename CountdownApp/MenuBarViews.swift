@@ -84,6 +84,10 @@ struct MenuBarMenu: View {
             NSApp.windows.first?.makeKeyAndOrderFront(nil)
         }
 
+        SettingsLink {
+            Text("Impostazioni…")
+        }
+
         Divider()
 
         Button("Esci") {

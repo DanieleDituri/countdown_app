@@ -61,6 +61,12 @@ struct EventListView: View {
                 .keyboardShortcut("n", modifiers: .command)
                 .help("Nuovo evento (⌘N)")
             }
+            ToolbarItem(placement: .automatic) {
+                SettingsLink {
+                    Label("Impostazioni", systemImage: "gear")
+                }
+                .help("Impostazioni (⌘,)")
+            }
         }
         .sheet(isPresented: $showNewEvent) {
             EventFormView(event: nil).environmentObject(store)
