@@ -17,11 +17,16 @@ A native macOS app to count down the days to your most important events.
 
 Download `CountdownApp.dmg` from the [latest release](https://github.com/DanieleDituri/countdown_app/releases/latest), open it, and drag CountdownApp into your Applications folder.
 
-> **"Cannot open" error on first launch?** macOS blocks apps that aren't notarized by Apple. To open it anyway:
-> 1. Right-click (or Control-click) on CountdownApp in your Applications folder
-> 2. Select **Open**
-> 3. Click **Open** in the confirmation dialog
+> **"Cannot open" error on first launch?** macOS blocks apps that aren't notarized by Apple. To open it:
+> 1. Try to open the app (you'll get the error)
+> 2. Go to **System Settings → Privacy & Security**
+> 3. Scroll down and click **"Open Anyway"** next to the CountdownApp message
+> 4. Enter your Mac password when prompted
 >
+> Alternatively, run this in Terminal:
+> ```bash
+> xattr -d com.apple.quarantine /Applications/CountdownApp.app
+> ```
 > You only need to do this once.
 
 ## Build from source
