@@ -24,6 +24,11 @@ struct CountdownApp: App {
                         lastSeenVersion = currentVersion
                     }
                 }
+                .onReceive(NotificationCenter.default.publisher(for: NSApplication.didResignActiveNotification)) { _ in
+                    if hideFromDock {
+                        NSApp.setActivationPolicy(.accessory)
+                    }
+                }
                 .sheet(isPresented: $showWhatsNew) {
                     WhatsNewView(version: currentVersion) {
                         showWhatsNew = false

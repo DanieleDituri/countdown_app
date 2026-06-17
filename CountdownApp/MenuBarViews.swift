@@ -1,15 +1,19 @@
 import SwiftUI
 import WidgetKit
 
-// Porta l'app in primo piano anche in modalità accessory (nascosta dal Dock)
+// Porta l'app in primo piano anche in modalità accessory (nascosta dal Dock).
+// Rimane in .regular finché la finestra è aperta; torna .accessory quando
+// l'utente la chiude o cambia app — gestito dall'AppDelegate in CountdownApp.swift.
 private func bringAppToFront() {
+    guard UserDefaults.standard.bool(forKey: "hideFromDock") else {
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.windows.first(where: { $0.canBecomeMain })?.makeKeyAndOrderFront(nil)
+        return
+    }
     NSApp.setActivationPolicy(.regular)
-    NSApp.activate(ignoringOtherApps: true)
-    NSApp.windows.first(where: { $0.canBecomeMain })?.makeKeyAndOrderFront(nil)
-    // Ripristina la policy preferita dall'utente dopo l'attivazione
-    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-        let hide = UserDefaults.standard.bool(forKey: "hideFromDock")
-        if hide { NSApp.setActivationPolicy(.accessory) }
+    DispatchQueue.main.async {
+        NSApp.activate(ignoringOtherApps: true)
+        NSApp.windows.first(where: { $0.canBecomeMain })?.makeKeyAndOrderFront(nil)
     }
 }
 
