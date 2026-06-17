@@ -79,6 +79,12 @@ struct MenuBarMenu: View {
         }
 
         // ── Azioni ──────────────────────────────────────────────────────────
+        Button("Nuovo Evento") {
+            NSApp.activate(ignoringOtherApps: true)
+            NSApp.windows.first?.makeKeyAndOrderFront(nil)
+            NotificationCenter.default.post(name: .newEvent, object: nil)
+        }
+
         Button("Apri Countdown") {
             NSApp.activate(ignoringOtherApps: true)
             NSApp.windows.first?.makeKeyAndOrderFront(nil)
