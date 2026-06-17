@@ -462,6 +462,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				CURRENT_PROJECT_VERSION = 6;
+				MARKETING_VERSION = 0.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.daniele.CountdownApp;
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;
@@ -503,6 +505,8 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				CURRENT_PROJECT_VERSION = 6;
+				MARKETING_VERSION = 0.3.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.daniele.CountdownApp;
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = macosx;

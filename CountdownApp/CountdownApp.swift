@@ -44,7 +44,17 @@ struct CountdownApp: App {
                     }
                     Button("Dopo", role: .cancel) {}
                 } message: {
-                    Text("È disponibile \(appUpdater.latestVersion).\n\nSe hai installato con Homebrew:\nbrew update && brew upgrade --cask countdownapp")
+                    Text("""
+                    È disponibile \(appUpdater.latestVersion).
+
+                    Con Homebrew:
+                    brew update && brew upgrade --cask countdownapp
+
+                    Prima volta con Homebrew? Disinstalla il DMG e installa via brew:
+                    brew tap daniele-dituri/tap https://github.com/DanieleDituri/homebrew-tap
+                    brew trust daniele-dituri/tap
+                    brew install --cask countdownapp
+                    """)
                 }
         }
         .commands {
