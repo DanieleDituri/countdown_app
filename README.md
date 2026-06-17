@@ -38,9 +38,35 @@ Download `CountdownApp.dmg` from the [latest release](https://github.com/Daniele
 > 2. Go to **System Settings → Privacy & Security**
 > 3. Scroll down and click **"Open Anyway"** next to the CountdownApp message
 > 4. Enter your Mac password when prompted
+>
+> Alternatively, run this in Terminal:
+> ```bash
+> xattr -d com.apple.quarantine /Applications/CountdownApp.app
+> ```
+
+## Build from source
+
+1. Clone the repo
+2. Open `CountdownApp.xcodeproj` in Xcode 15+
+3. In **Signing & Capabilities**, set your own Apple Developer team for both targets
+4. Add the **App Groups** capability (`group.com.daniele.CountdownApp`) to both targets
+5. Hit ⌘R
 
 ## Adding widgets to the desktop
 
 1. Right-click the macOS desktop → **Edit Widgets**
 2. Search for **CountdownApp**
 3. Add Small, Medium, or Large
+
+## Pubblicare una nuova versione (solo sviluppatore)
+
+Dopo aver buildata l'app in Release su Xcode (⌘B):
+
+```bash
+./scripts/release.sh 0.4
+```
+
+Lo script in automatico:
+- Firma il `.app` e crea il DMG
+- Crea il tag git e pubblica la release su GitHub con le note dai commit
+- Aggiorna il Homebrew tap — gli utenti ricevono l'aggiornamento con `brew upgrade --cask countdownapp`
