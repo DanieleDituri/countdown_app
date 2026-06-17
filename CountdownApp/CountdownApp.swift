@@ -18,6 +18,7 @@ struct CountdownApp: App {
                 .environmentObject(store)
                 .task {
                     NSApp.setActivationPolicy(hideFromDock ? .accessory : .regular)
+                    appUpdater.checkForUpdates()
                     if lastSeenVersion != currentVersion {
                         showWhatsNew = true
                         lastSeenVersion = currentVersion
@@ -27,6 +28,14 @@ struct CountdownApp: App {
                     WhatsNewView(version: currentVersion) {
                         showWhatsNew = false
                     }
+                }
+                .alert("Aggiornamento disponibile", isPresented: $appUpdater.updateAvailable) {
+                    Button("Scarica \(appUpdater.latestVersion)") {
+                        if let url = appUpdater.releaseURL { NSWorkspace.shared.open(url) }
+                    }
+                    Button("Dopo", role: .cancel) {}
+                } message: {
+                    Text("È disponibile una nuova versione di CountdownApp.")
                 }
         }
         .commands {

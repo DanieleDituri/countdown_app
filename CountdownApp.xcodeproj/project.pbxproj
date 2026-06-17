@@ -21,8 +21,8 @@
 		C3F1586B66D1D82074D7441C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB4A8445B8B325CCFD16159 /* ContentView.swift */; };
 		D3D943CE909A8F9E75AAC29D /* CountdownWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E1232734CFA6F119E97A0FE1 /* CountdownWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D93D257E2FE28116004515CA /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D257C2FE28116004515CA /* UpdateChecker.swift */; };
-		D93D25842FE283D0004515CA /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = D93D25832FE283D0004515CA /* Sparkle */; };
 		D93D25862FE283FB004515CA /* AppUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D25852FE283FB004515CA /* AppUpdater.swift */; };
+		D93D25882FE285E1004515CA /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D25872FE285E1004515CA /* WhatsNewView.swift */; };
 		D93DA7E92FE1759D00C30DCE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93DA7E82FE1759D00C30DCE /* SettingsView.swift */; };
 		D9DB9EAA2FE14B2A007629D8 /* SelectEventIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB9EA92FE14B2A007629D8 /* SelectEventIntent.swift */; };
 		D9DB9EAE2FE14EEF007629D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9DB9EAB2FE14DF8007629D8 /* Assets.xcassets */; };
@@ -85,6 +85,7 @@
 		ADB4A8445B8B325CCFD16159 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D93D257C2FE28116004515CA /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChecker.swift; sourceTree = "<group>"; };
 		D93D25852FE283FB004515CA /* AppUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdater.swift; sourceTree = "<group>"; };
+		D93D25872FE285E1004515CA /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
 		D93DA7E82FE1759D00C30DCE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D9DB9EA92FE14B2A007629D8 /* SelectEventIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEventIntent.swift; sourceTree = "<group>"; };
 		D9DB9EAB2FE14DF8007629D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D93D25842FE283D0004515CA /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +144,7 @@
 		D498EEB69F749A50D6A95BAB = {
 			isa = PBXGroup;
 			children = (
+				D93D25872FE285E1004515CA /* WhatsNewView.swift */,
 				D93D25852FE283FB004515CA /* AppUpdater.swift */,
 				D93D257C2FE28116004515CA /* UpdateChecker.swift */,
 				D93DA7E82FE1759D00C30DCE /* SettingsView.swift */,
@@ -220,7 +221,6 @@
 			);
 			name = CountdownApp;
 			packageProductDependencies = (
-				D93D25832FE283D0004515CA /* Sparkle */,
 			);
 			productName = CountdownApp;
 			productReference = 8165992EF55EC05C6F72D88D /* CountdownApp.app */;
@@ -253,7 +253,6 @@
 			mainGroup = D498EEB69F749A50D6A95BAB;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				D93D257F2FE282E4004515CA /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 9F323C09ADE5964A069D7C31 /* Products */;
@@ -300,6 +299,7 @@
 				C3F1586B66D1D82074D7441C /* ContentView.swift in Sources */,
 				FC864D5E532B1818EFFC8B38 /* CountdownApp.swift in Sources */,
 				D93DA7E92FE1759D00C30DCE /* SettingsView.swift in Sources */,
+				D93D25882FE285E1004515CA /* WhatsNewView.swift in Sources */,
 				D93D25862FE283FB004515CA /* AppUpdater.swift in Sources */,
 				4A36EEC07F5A7ED1BFDA7341 /* EventFormView.swift in Sources */,
 				0F905291E71F361D93B55A1A /* Extensions.swift in Sources */,
@@ -359,7 +359,7 @@
 				DEVELOPMENT_TEAM = k9r756396c;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -419,7 +419,7 @@
 				DEVELOPMENT_TEAM = k9r756396c;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -560,25 +560,6 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		D93D257F2FE282E4004515CA /* XCRemoteSwiftPackageReference "Sparkle" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparkle-project/Sparkle";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.3;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		D93D25832FE283D0004515CA /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D93D257F2FE282E4004515CA /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 61B2419A126B5F334885B689 /* Project object */;
 }
