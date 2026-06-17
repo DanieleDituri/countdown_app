@@ -14,8 +14,8 @@
       <pubDate>Mon, 16 Jun 2026 00:00:00 +0000</pubDate>
       <enclosure
         url="https://github.com/DanieleDituri/countdown_app/releases/download/v0.2/CountdownApp.dmg"
-        sparkle:edSignature="PLACEHOLDER"
-        length="0"
+        sparkle:edSignature="5iawMYNZYLnTNy36TvXZ/KgCzS0BWlBT42xUXtjWQZeQ8zlQL57XGgXaQlMiUeYLJEiKiZhE6HcYu+ITROORDg=="
+        length="1922411"
         type="application/octet-stream"/>
       <sparkle:releaseNotesLink>https://github.com/DanieleDituri/countdown_app/releases/tag/v0.2</sparkle:releaseNotesLink>
     </item>
