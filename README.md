@@ -26,8 +26,10 @@ brew install --cask countdownapp
 
 **Update:**
 ```bash
-brew upgrade --cask countdownapp
+brew update && brew upgrade --cask countdownapp
 ```
+
+> `brew update` è necessario per sincronizzare il tap prima dell'upgrade. Senza, Homebrew usa la cache locale e potrebbe non trovare la versione nuova.
 
 ### Manual
 
