@@ -1,12 +1,23 @@
 #!/bin/bash
-# Uso: ./scripts/release.sh 0.4 "Note di release qui"
+# Uso: ./scripts/release.sh 0.4
 # Crea DMG, aggiorna Homebrew tap e pubblica su GitHub.
+# Le note di release vengono generate dai commit git dall'ultimo tag.
 
 set -e
 
 VERSION="${1:?Specifica la versione, es: ./scripts/release.sh 0.4}"
-NOTES="${2:-Vedi release notes su GitHub.}"
 TAG="v$VERSION"
+
+# Genera note di release dai commit dall'ultimo tag
+LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+if [ -n "$LAST_TAG" ]; then
+  NOTES=$(git log "$LAST_TAG"..HEAD --pretty=format:"- %s" --no-merges)
+else
+  NOTES=$(git log --pretty=format:"- %s" --no-merges)
+fi
+[ -z "$NOTES" ] && NOTES="- Miglioramenti e correzioni"
+echo "▶ Note di release:"
+echo "$NOTES"
 DERIVED="/Users/daniele.dituri/Library/Developer/Xcode/DerivedData"
 APP=$(find "$DERIVED" -name "CountdownApp.app" -path "*/Release/*" -type d | head -1)
 DMG="/tmp/CountdownApp.dmg"
