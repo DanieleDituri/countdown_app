@@ -1,6 +1,18 @@
 import SwiftUI
 import WidgetKit
 
+// Porta l'app in primo piano anche in modalità accessory (nascosta dal Dock)
+private func bringAppToFront() {
+    NSApp.setActivationPolicy(.regular)
+    NSApp.activate(ignoringOtherApps: true)
+    NSApp.windows.first(where: { $0.canBecomeMain })?.makeKeyAndOrderFront(nil)
+    // Ripristina la policy preferita dall'utente dopo l'attivazione
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        let hide = UserDefaults.standard.bool(forKey: "hideFromDock")
+        if hide { NSApp.setActivationPolicy(.accessory) }
+    }
+}
+
 // MARK: - Menu Bar Label
 // Sempre visibile nella barra: "🎉 42g" oppure "📅" se nessun evento è pinnato.
 // HIG: testo breve, leggibile, aggiornato automaticamente.
@@ -80,14 +92,12 @@ struct MenuBarMenu: View {
 
         // ── Azioni ──────────────────────────────────────────────────────────
         Button("Nuovo Evento") {
-            NSApp.activate(ignoringOtherApps: true)
-            NSApp.windows.first?.makeKeyAndOrderFront(nil)
+            bringAppToFront()
             NotificationCenter.default.post(name: .newEvent, object: nil)
         }
 
         Button("Apri Countdown") {
-            NSApp.activate(ignoringOtherApps: true)
-            NSApp.windows.first?.makeKeyAndOrderFront(nil)
+            bringAppToFront()
         }
 
         SettingsLink {
