@@ -20,6 +20,7 @@ A native macOS app to count down the days to your most important events.
 
 ```bash
 brew tap daniele-dituri/tap https://github.com/DanieleDituri/homebrew-tap
+brew trust daniele-dituri/tap
 brew install --cask countdownapp
 ```
 
@@ -57,8 +58,15 @@ Download `CountdownApp.dmg` from the [latest release](https://github.com/Daniele
 2. Search for **CountdownApp**
 3. Add Small, Medium, or Large
 
-## Release a new version
+## Pubblicare una nuova versione (solo sviluppatore)
+
+Dopo aver buildata l'app in Release su Xcode (⌘B):
 
 ```bash
 ./scripts/release.sh 0.4
 ```
+
+Lo script in automatico:
+- Firma il `.app` e crea il DMG
+- Crea il tag git e pubblica la release su GitHub con le note dai commit
+- Aggiorna il Homebrew tap — gli utenti ricevono l'aggiornamento con `brew upgrade --cask countdownapp`
