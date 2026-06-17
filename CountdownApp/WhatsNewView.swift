@@ -1,31 +1,32 @@
 import SwiftUI
 
-struct WhatsNewItem {
-    let icon: String
-    let color: Color
-    let title: String
-    let description: String
-}
+// Scarica le release notes dalla release GitHub corrispondente alla versione corrente
+@MainActor
+class WhatsNewLoader: ObservableObject {
+    @Published var body = ""
+    @Published var isLoading = true
 
-private let releaseNotes: [String: [WhatsNewItem]] = [
-    "0.2": [
-        WhatsNewItem(icon: "plus.circle.fill", color: .blue,
-                     title: "Nuovo Evento dalla Menu Bar",
-                     description: "Aggiungi eventi direttamente dal menu nella barra di sistema."),
-        WhatsNewItem(icon: "gear", color: .gray,
-                     title: "Impostazioni",
-                     description: "Apri al login e nascondi l'app dal Dock tenendola attiva nella menu bar."),
-        WhatsNewItem(icon: "arrow.down.circle.fill", color: .green,
-                     title: "Aggiornamenti automatici",
-                     description: "Dalla prossima versione l'app si aggiornerà senza scaricare il DMG manualmente."),
-    ]
-]
+    func load(version: String) {
+        Task {
+            let tag = "v\(version)"
+            guard let url = URL(string: "https://api.github.com/repos/DanieleDituri/countdown_app/releases/tags/\(tag)") else { return }
+            do {
+                let (data, _) = try await URLSession.shared.data(from: url)
+                if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let notes = json["body"] as? String {
+                    body = notes
+                }
+            } catch {}
+            isLoading = false
+        }
+    }
+}
 
 struct WhatsNewView: View {
     let version: String
     var onDismiss: () -> Void
 
-    private var items: [WhatsNewItem] { releaseNotes[version] ?? [] }
+    @StateObject private var loader = WhatsNewLoader()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -38,29 +39,30 @@ struct WhatsNewView: View {
                     .font(.title2.weight(.bold))
             }
             .padding(.top, 32)
-            .padding(.bottom, 24)
+            .padding(.bottom, 20)
 
-            // Items
-            VStack(alignment: .leading, spacing: 20) {
-                ForEach(items, id: \.title) { item in
-                    HStack(alignment: .top, spacing: 14) {
-                        Image(systemName: item.icon)
-                            .font(.title2)
-                            .foregroundStyle(item.color)
-                            .frame(width: 32)
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(item.title)
-                                .font(.body.weight(.semibold))
-                            Text(item.description)
-                                .font(.callout)
-                                .foregroundStyle(.secondary)
-                        }
+            // Corpo
+            Group {
+                if loader.isLoading {
+                    ProgressView()
+                        .frame(height: 80)
+                } else if loader.body.isEmpty {
+                    Text("Nessuna nota disponibile.")
+                        .foregroundStyle(.secondary)
+                        .frame(height: 80)
+                } else {
+                    ScrollView {
+                        Text(loader.body)
+                            .font(.callout)
+                            .foregroundStyle(.primary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, 32)
                     }
+                    .frame(maxHeight: 240)
                 }
             }
-            .padding(.horizontal, 32)
 
-            Spacer(minLength: 24)
+            Spacer(minLength: 20)
 
             Button("Continua") { onDismiss() }
                 .buttonStyle(.borderedProminent)
@@ -69,6 +71,6 @@ struct WhatsNewView: View {
                 .padding(.bottom, 28)
         }
         .frame(width: 420)
-        .fixedSize(horizontal: false, vertical: true)
+        .task { loader.load(version: version) }
     }
 }
