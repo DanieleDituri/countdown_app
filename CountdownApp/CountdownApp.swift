@@ -35,12 +35,16 @@ struct CountdownApp: App {
                     }
                 }
                 .alert("Aggiornamento disponibile", isPresented: $appUpdater.updateAvailable) {
-                    Button("Scarica \(appUpdater.latestVersion)") {
+                    Button("Apri pagina release") {
                         if let url = appUpdater.releaseURL { NSWorkspace.shared.open(url) }
+                    }
+                    Button("Copia comando brew") {
+                        NSPasteboard.general.clearContents()
+                        NSPasteboard.general.setString("brew update && brew upgrade --cask countdownapp", forType: .string)
                     }
                     Button("Dopo", role: .cancel) {}
                 } message: {
-                    Text("È disponibile una nuova versione di CountdownApp.")
+                    Text("È disponibile \(appUpdater.latestVersion).\n\nSe hai installato con Homebrew:\nbrew update && brew upgrade --cask countdownapp")
                 }
         }
         .commands {
