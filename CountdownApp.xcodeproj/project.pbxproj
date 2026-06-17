@@ -21,8 +21,8 @@
 		C3F1586B66D1D82074D7441C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB4A8445B8B325CCFD16159 /* ContentView.swift */; };
 		D3D943CE909A8F9E75AAC29D /* CountdownWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = E1232734CFA6F119E97A0FE1 /* CountdownWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D93D257E2FE28116004515CA /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D257C2FE28116004515CA /* UpdateChecker.swift */; };
-		D93D25862FE283FB004515CA /* AppUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D25852FE283FB004515CA /* AppUpdater.swift */; };
 		D93D25882FE285E1004515CA /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D25872FE285E1004515CA /* WhatsNewView.swift */; };
+		D93D258B2FE288E8004515CA /* AppUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93D258A2FE288E8004515CA /* AppUpdater.swift */; };
 		D93DA7E92FE1759D00C30DCE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93DA7E82FE1759D00C30DCE /* SettingsView.swift */; };
 		D9DB9EAA2FE14B2A007629D8 /* SelectEventIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DB9EA92FE14B2A007629D8 /* SelectEventIntent.swift */; };
 		D9DB9EAE2FE14EEF007629D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9DB9EAB2FE14DF8007629D8 /* Assets.xcassets */; };
@@ -84,8 +84,8 @@
 		A4CEE19C6E95BCBADDE953D1 /* EventEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventEntity.swift; sourceTree = "<group>"; };
 		ADB4A8445B8B325CCFD16159 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D93D257C2FE28116004515CA /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChecker.swift; sourceTree = "<group>"; };
-		D93D25852FE283FB004515CA /* AppUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdater.swift; sourceTree = "<group>"; };
 		D93D25872FE285E1004515CA /* WhatsNewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewView.swift; sourceTree = "<group>"; };
+		D93D258A2FE288E8004515CA /* AppUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUpdater.swift; sourceTree = "<group>"; };
 		D93DA7E82FE1759D00C30DCE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D9DB9EA92FE14B2A007629D8 /* SelectEventIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEventIntent.swift; sourceTree = "<group>"; };
 		D9DB9EAB2FE14DF8007629D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -144,8 +144,8 @@
 		D498EEB69F749A50D6A95BAB = {
 			isa = PBXGroup;
 			children = (
+				D93D258A2FE288E8004515CA /* AppUpdater.swift */,
 				D93D25872FE285E1004515CA /* WhatsNewView.swift */,
-				D93D25852FE283FB004515CA /* AppUpdater.swift */,
 				D93D257C2FE28116004515CA /* UpdateChecker.swift */,
 				D93DA7E82FE1759D00C30DCE /* SettingsView.swift */,
 				D9DB9EAB2FE14DF8007629D8 /* Assets.xcassets */,
@@ -299,8 +299,8 @@
 				C3F1586B66D1D82074D7441C /* ContentView.swift in Sources */,
 				FC864D5E532B1818EFFC8B38 /* CountdownApp.swift in Sources */,
 				D93DA7E92FE1759D00C30DCE /* SettingsView.swift in Sources */,
+				D93D258B2FE288E8004515CA /* AppUpdater.swift in Sources */,
 				D93D25882FE285E1004515CA /* WhatsNewView.swift in Sources */,
-				D93D25862FE283FB004515CA /* AppUpdater.swift in Sources */,
 				4A36EEC07F5A7ED1BFDA7341 /* EventFormView.swift in Sources */,
 				0F905291E71F361D93B55A1A /* Extensions.swift in Sources */,
 				B00500EAC65079041419F609 /* MenuBarViews.swift in Sources */,
