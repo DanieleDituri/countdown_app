@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle">
+  <channel>
+    <title>CountdownApp</title>
+    <link>https://github.com/DanieleDituri/countdown_app</link>
+    <description>CountdownApp aggiornamenti</description>
+    <language>it</language>
+
+    <item>
+      <title>CountdownApp 0.2</title>
+      <sparkle:version>2</sparkle:version>
+      <sparkle:shortVersionString>0.2</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <pubDate>Mon, 16 Jun 2026 00:00:00 +0000</pubDate>
+      <enclosure
+        url="https://github.com/DanieleDituri/countdown_app/releases/download/v0.2/CountdownApp.dmg"
+        sparkle:edSignature="PLACEHOLDER"
+        length="0"
+        type="application/octet-stream"/>
+      <sparkle:releaseNotesLink>https://github.com/DanieleDituri/countdown_app/releases/tag/v0.2</sparkle:releaseNotesLink>
+    </item>
+
+  </channel>
+</rss>
