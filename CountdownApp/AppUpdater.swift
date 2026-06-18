@@ -18,8 +18,9 @@ class AppUpdater: ObservableObject {
                       let htmlURL = json["html_url"] as? String else { return }
                 let current = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0"
                 let remote = tag.trimmingCharacters(in: CharacterSet(charactersIn: "v"))
+                guard remote != current else { return }
                 if remote.compare(current, options: .numeric) == .orderedDescending {
-                    latestVersion = tag
+                    latestVersion = remote
                     releaseURL = URL(string: htmlURL)
                     updateAvailable = true
                 }

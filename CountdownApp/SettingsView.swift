@@ -7,6 +7,13 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
+            Section("Informazioni") {
+                LabeledContent("Versione") {
+                    Text(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—")
+                        .foregroundStyle(.secondary)
+                }
+            }
+
             Section("Generali") {
                 Toggle("Apri al login", isOn: $launchAtLogin)
                     .onChange(of: launchAtLogin) { _, newValue in
@@ -28,7 +35,7 @@ struct SettingsView: View {
             }
         }
         .formStyle(.grouped)
-        .frame(width: 340, height: 160)
+        .frame(width: 340, height: 200)
         .onAppear {
             launchAtLogin = (SMAppService.mainApp.status == .enabled)
         }
